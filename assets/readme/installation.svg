@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="246" height="64" viewBox="0 0 246 64" role="img" aria-labelledby="title desc">
+  <title id="title">Installation</title><desc id="desc">NeuroWeave installation link</desc>
+  <defs><linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#332940"/><stop offset="0.48" stop-color="#4d3e5e"/><stop offset="1" stop-color="#2d2537"/></linearGradient></defs>
+  <rect x="0.5" y="0.5" width="245" height="63" fill="url(#purple)" stroke="#5d4c6e"/>
+  <text x="123" y="39" fill="#edf3ee" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="middle">Installation</text>
+</svg>
