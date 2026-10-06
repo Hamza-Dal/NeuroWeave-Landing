@@ -3,35 +3,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NeuroWeave is an EEG analysis workbench for detecting paroxysmal slow-wave events.">
   <title>NeuroWeave</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; color: #eef0f5; background: linear-gradient(145deg,#2b303e,#232632 48%,#4a2e54); }
-    main { width: min(900px, calc(100% - 40px)); margin: 0 auto; padding: 64px 0; }
-    h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin: 0 0 12px; }
-    h2 { margin-top: 48px; }
-    p, li { font-size: 1.1rem; line-height: 1.65; }
-    .card { border: 1px solid #aeb7d0; background: rgba(14,17,23,.62); padding: 24px; }
-    a { color: #9ce7aa; }
-    .github-link { margin: 28px 0 32px; }
-    footer { margin-top: 56px; color: #c9ceda; }
+    :root { color-scheme: light; --bg: #fff; --text: #1f2328; --muted: #59636e; --border: #d1d9e0; --link: #0969da; --soft: #f6f8fa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--text); background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; font-size: 16px; line-height: 1.5; }
+    main { width: min(1012px, calc(100% - 32px)); margin: 0 auto; padding: 40px 32px 64px; }
+    h1, h2, h3 { font-weight: 600; line-height: 1.25; }
+    h1 { margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); font-size: 2em; text-align: center; }
+    h2 { margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); font-size: 1.5em; }
+    h3 { margin: 28px 0 12px; font-size: 1.25em; }
+    p { margin: 0 0 16px; }
+    ul { margin: 0 0 16px; padding-left: 2em; }
+    li + li { margin-top: 4px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: 600; }
+    .lead, .badges, .figure, .release, .credits { text-align: center; }
+    .lead { font-size: 1.05rem; }
+    .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 28px 0 40px; }
+    .badges img { display: block; height: 20px; }
+    .figure { margin: 24px auto; }
+    .figure img { display: block; max-width: 100%; height: auto; margin: 0 auto 10px; border-radius: 6px; }
+    .figure figcaption { color: var(--muted); font-size: .9rem; line-height: 1.45; }
+    blockquote { margin: 0 0 16px; padding: 0 1em; color: var(--muted); border-left: .25em solid var(--border); }
+    blockquote p { margin: 0; }
+    blockquote + blockquote { margin-top: 16px; }
+    .feature { margin: 18px 0; padding: 16px 20px; background: var(--soft); border: 1px solid var(--border); border-radius: 6px; }
+    .feature h3 { margin-top: 0; }
+    .feature > :last-child { margin-bottom: 0; }
+    .release { margin-top: 40px; }
+    .credits { color: var(--muted); font-size: .95rem; }
+    @media (max-width: 640px) {
+      main { width: min(100% - 24px, 1012px); padding: 24px 8px 48px; }
+      h1 { font-size: 1.75em; }
+      h2 { font-size: 1.35em; }
+      .feature { padding: 14px 16px; }
+    }
   </style>
 </head>
 <body>
 <main>
   <h1>NeuroWeave</h1>
-  <p>NeuroWeave is an EEG analysis workbench for detecting paroxysmal slow-wave events (PSWEs).</p>
-  <p class="github-link"><a href="https://github.com/Hamza-Dal/NeuroWeave">View NeuroWeave on GitHub</a></p>
-  <section class="card">
-    <h2>About PSWEs</h2>
-    <p>Paroxysmal slow-wave events are transient periods of low-frequency cortical activity observed in animal models and people with epilepsy. NeuroWeave supports local, reproducible EEG import, preprocessing, analysis, visualization, and export workflows.</p>
+  <p class="lead">NeuroWeave is an EEG analysis workbench for detecting paroxysmal slow-wave events (PSWEs).</p>
+  <div class="badges" aria-label="Project resources">
+    <img src="assets/readme/installation.svg" alt="Installation">
+    <img src="assets/readme/documentation.svg" alt="Documentation">
+    <img src="assets/readme/tutorial.svg" alt="Tutorial">
+  </div>
+
+  <h2>What are paroxysmal slow wave events?</h2>
+  <p>Paroxysmal slow wave events (PSWEs) are transient periods of low-frequency cortical activity observed in animal models and people with epilepsy. They are detected automatically from electroencephalography (EEG) when the median power frequency (MPF) remains within the 1–6 Hz range for at least five seconds.</p>
+  <figure class="figure">
+    <img src="https://github.com/user-attachments/assets/3228516f-e811-458a-af04-d0414bfc5d22" alt="Example of paroxysmal slow wave event detection" width="700">
+    <figcaption>A. Representative trace from the C4-electrode; shaded regions mark individual PSWEs.<br>B. MPF over time; PSWEs are detected at 1–6 Hz for at least 5 seconds.<br>C. Voltage, MPF, and spectrograms for three example PSWEs.</figcaption>
+  </figure>
+  <p>PSWEs are a promising diagnostic and prognostic biomarker of epilepsy.</p>
+
+  <h3>Related publications</h3>
+  <blockquote><p>Boyer-Aymé FJM, Imtiaz H, et al. <strong>Paroxysmal slow waves mark ictal networks.</strong> <em>Epilepsia</em>. 2026.<br><a href="https://doi.org/10.1002/epi.70333">doi:10.1002/epi.70333</a></p></blockquote>
+  <blockquote><p>Serlin Y, Imtiaz H, et al. <strong>Paroxysmal cortical slowing predicts posttraumatic epilepsy after severe traumatic brain injury.</strong> <em>Neurocritical Care</em>. 2026;44(1):50–55.<br><a href="https://doi.org/10.1007/s12028-025-02282-5">doi:10.1007/s12028-025-02282-5</a></p></blockquote>
+  <blockquote><p>Malunga A, Lash S, et al. <strong>Paroxysmal slow wave events as a diagnostic biomarker for epilepsy: Lessons from rural Zambia.</strong> <em>Epilepsia</em>. 2025;66(12):4869–4880.<br><a href="https://doi.org/10.1111/epi.18598">doi:10.1111/epi.18598</a></p></blockquote>
+  <blockquote><p>Serlin Y, Imtiaz H, et al. <strong>Paroxysmal cortical slowing linked to drug-resistant epilepsy.</strong> <em>eBioMedicine</em>. 2025;116:105780.<br><a href="https://doi.org/10.1016/j.ebiom.2025.105780">doi:10.1016/j.ebiom.2025.105780</a></p></blockquote>
+  <blockquote><p>Zelig D, et al. <strong>Paroxysmal slow wave events predict epilepsy following a first seizure.</strong> <em>Epilepsia</em>. 2022;63(1):190–198.<br><a href="https://doi.org/10.1111/epi.17110">doi:10.1111/epi.17110</a></p></blockquote>
+
+  <h2>Features</h2>
+  <section class="feature">
+    <h3>1. Import</h3>
+    <ul><li>Import a broad range of EEG recording formats.</li><li>Discover recordings recursively within local folders.</li><li>Built-in access to OpenNeuro datasets.</li></ul>
   </section>
-  <h2>Related publications</h2>
-  <ul>
-    <li>Boyer-Aymé FJM, Imtiaz H, et al. <em>Paroxysmal slow waves mark ictal networks.</em> Epilepsia. 2026.</li>
-    <li>Serlin Y, Imtiaz H, et al. <em>Paroxysmal cortical slowing predicts posttraumatic epilepsy after severe traumatic brain injury.</em> Neurocritical Care. 2026.</li>
-    <li>Malunga A, Lash S, et al. <em>Paroxysmal slow wave events as a diagnostic biomarker for epilepsy: Lessons from rural Zambia.</em> Epilepsia. 2025.</li>
-  </ul>
-  <footer>Developed by the Friedman Lab, Dalhousie University.</footer>
+  <section class="feature">
+    <h3>2. Preprocessing</h3>
+    <p>Configurable and reproducible preprocessing workflows for individual recordings or complete datasets.</p>
+    <ul><li>Configure modular preprocessing steps from the NeuroWeave interface.</li><li>Apply channel selection, rereferencing, filtering, artifact rejection, ICA, and baseline correction.</li><li>Batch analysis with checkpoints to continue if the analysis was interrupted at any point.</li></ul>
+  </section>
+  <section class="feature">
+    <h3>3. Analysis</h3>
+    <p>Displays analysis results in a completely local Streamlit app.</p>
+    <ul><li>Rapid PSWE and PSD analysis (~5 seconds without ICA for a 19-channel, 20-minute recording).</li><li>Visualize PSWE results, including the topographic distribution of PSWE features both globally and for individual events.</li></ul>
+  </section>
+  <section class="feature">
+    <h3>4. Export</h3>
+    <ul><li>Generate consolidated reports containing recording-level and event-level PSWE features.</li><li>Batch convert preprocessed or original recording data.</li><li>Save individual PSWE epoch waveforms as JSON files.</li><li>Export median power frequency arrays.</li></ul>
+  </section>
+
+  <h2>Acknowledgements</h2>
+  <p>NeuroWeave is built on <a href="https://mne.tools/">MNE-Python</a>. This page follows the compact project-page structure used by <a href="https://github.com/mne-tools/mne-bids-pipeline">MNE-BIDS-Pipeline</a>.</p>
+  <blockquote><p>Gramfort A, Luessi M, Larson E, et al. MEG and EEG data analysis with MNE-Python. <em>Frontiers in Neuroscience</em>. 2013;7:267. <a href="https://doi.org/10.3389/fnins.2013.00267">doi:10.3389/fnins.2013.00267</a></p></blockquote>
+  <p class="release"><strong>Stay tuned for public release!</strong></p>
+  <p class="credits">Developed by the Friedman Lab, Dalhousie University.<br>Built with Codex under the direction of Hamza Imtiaz, PhD Candidate.<br>Email: <a href="mailto:hamza@dal.ca">hamza@dal.ca</a><br><a href="https://www.bbbscience.com/">bbbscience.com</a></p>
 </main>
 </body>
 </html>
