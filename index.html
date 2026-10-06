@@ -9,7 +9,7 @@
     :root { color-scheme: dark; --text: #f5f6fa; --muted: #c9ceda; --border: rgba(199, 207, 229, .22); --link: #a7edb4; --soft: rgba(14, 17, 23, .62); --soft-strong: rgba(12, 15, 21, .78); --shadow: 0 24px 70px rgba(5, 7, 12, .22); }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; color: var(--text); background: radial-gradient(circle at 92% 8%, rgba(194, 78, 224, .30), transparent 38rem), linear-gradient(145deg, #2b303e 0%, #232632 48%, #4a2e54 100%); background-attachment: fixed; font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 20px; line-height: 1.68; }
-    main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 64px 0 72px; }
+    main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 0 0 72px; }
     h1, h2, h3 { font-weight: 650; line-height: 1.2; letter-spacing: -.02em; }
     h1 { margin: 0; font-size: clamp(3rem, 8vw, 5.6rem); letter-spacing: -.055em; }
     h2 { margin: 0 0 24px; font-size: clamp(1.7rem, 3vw, 2.35rem); }
@@ -20,8 +20,8 @@
     a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
     a:hover { text-decoration: underline; }
     strong { font-weight: 600; }
-    .hero { padding: 36px 24px 76px; text-align: center; }
-    .lead { max-width: 860px; margin: 24px auto 0; color: var(--muted); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.55; }
+    .hero { width: 100vw; margin: 0 0 28px calc(50% - 50vw); padding: 64px max(24px, calc((100vw - 1180px) / 2)) 76px; text-align: center; background: rgba(194, 198, 210, .11); border-bottom: 1px solid rgba(210, 215, 228, .18); }
+    .lead { max-width: none; margin: 24px auto 0; color: var(--muted); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.55; white-space: nowrap; }
     .content-section { margin-bottom: 28px; padding: clamp(24px, 4vw, 48px); background: linear-gradient(145deg, rgba(19, 22, 30, .72), rgba(18, 16, 25, .58)); border: 1px solid var(--border); border-radius: 0; box-shadow: var(--shadow); backdrop-filter: blur(12px); }
     .content-section > p { max-width: 980px; }
     .figure { margin: 34px auto 28px; }
@@ -39,13 +39,14 @@
     .feature:hover { background: rgba(255, 255, 255, .025); }
     .feature h3 { margin-top: 0; }
     .feature > :last-child { margin-bottom: 0; }
-    footer { margin-top: 28px; padding: 34px 28px; background: rgba(194, 198, 210, .11); border: 1px solid rgba(210, 215, 228, .18); }
+    footer { width: 100vw; margin: 28px 0 0 calc(50% - 50vw); padding: 34px max(24px, calc((100vw - 1180px) / 2)); background: rgba(194, 198, 210, .11); border-top: 1px solid rgba(210, 215, 228, .18); border-bottom: 1px solid rgba(210, 215, 228, .18); }
     .release { margin: 0 0 22px; text-align: center; font-size: 1.2rem; }
     .credits { margin: 0; color: var(--muted); font-size: 1.08rem; text-align: center; }
     @media (max-width: 640px) {
       body { font-size: 18px; }
-      main { width: calc(100% - 24px); padding: 32px 0 48px; }
-      .hero { padding: 24px 12px 48px; }
+      main { width: calc(100% - 24px); padding: 0 0 48px; }
+      .hero { padding: 40px 20px 48px; }
+      .lead { white-space: normal; }
       .content-section { padding: 24px 20px; border-radius: 0; }
       blockquote { padding-left: 54px; }
       blockquote::before { left: 20px; }
